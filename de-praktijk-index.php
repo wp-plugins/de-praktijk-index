@@ -3,7 +3,7 @@
  * Plugin Name: De Praktijk Index
  * Plugin URI: http://www.depraktijkindex.nl
  * Description: Plugin for De Praktijk Index, Bilthoven.
- * Version: 0.2.1
+ * Version: 0.3.1
  * Author: Leon Hooijer
  * Author URI: http://www.leonhooijer.nl
  * License: GPL2
@@ -44,3 +44,8 @@ foreach ( $post_types as $post_type ) {
    add_filter("manage_edit-".$post_type."_sortable_columns", 'last_modified_sort');
 }
 /* End Of: Add sortable Last Modified column */
+
+/* Extend Bogo types */
+$salient_post_types = array('portfolio', 'home_slider', 'nectar_slider' );
+add_filter('bogo_localizable_post_types', $salient_post_types, 10, 1);
+/* End Of: Extend Bogo types */
